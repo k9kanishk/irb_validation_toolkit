@@ -2,9 +2,6 @@
 
 A SAS-based validation toolkit for IRB (Internal Ratings-Based) credit risk models covering **PD**, **LGD**, and **EAD/CCF** validation. Aligned to **CRR Articles 179/181/182** and **EBA GL/2017/16**.
 
-## 🎯 Live Dashboard
-
-[View Interactive Results Dashboard](https://your-app-url.onrender.com)
 
 ## Key Results
 
