@@ -1,41 +1,50 @@
 /*******************************************************************************
 * MASTER VALIDATION RUNNER
 * Purpose: Execute complete IRB validation pipeline
-* Usage: Update project_root, then run this file in SAS
+*
+* SETUP: Update project_root on LINE 14 to your local folder path
+*
+* Examples:
+*   Windows:  C:\Users\yourname\irb_validation_toolkit
+*   Mac/Linux: /home/yourname/irb_validation_toolkit
+*   SAS Server: /sasdata/irb/validation
 ********************************************************************************/
 
 DM 'LOG; CLEAR; OUTPUT; CLEAR;';
 
-/*=============================================================================
-  STEP 1: CONFIGURATION
-=============================================================================*/
-%INCLUDE "config/validation_config.sas" / SOURCE2;
-%INCLUDE "config/model_parameters.sas"  / SOURCE2;
+/* !! UPDATE THIS PATH TO YOUR LOCAL FOLDER !! */
+%LET project_root = ;  /* e.g. C:\Users\yourname\irb_validation_toolkit */
 
-/*=============================================================================
-  STEP 2: LOAD MACROS
-=============================================================================*/
-%INCLUDE "macros/00_utility_macros.sas"     / SOURCE2;
-%INCLUDE "macros/01_data_quality.sas"       / SOURCE2;
-%INCLUDE "macros/02_pd_validation.sas"      / SOURCE2;
-%INCLUDE "macros/03_lgd_validation.sas"     / SOURCE2;
-%INCLUDE "macros/04_ead_ccf_validation.sas" / SOURCE2;
-%INCLUDE "macros/05_reporting.sas"          / SOURCE2;
-%INCLUDE "main/generate_sample_data.sas"    / SOURCE2;
+/* Validate path is set */
+%IF &project_root. = %THEN %DO;
+    %PUT ERROR: ================================================;
+    %PUT ERROR: project_root is not set!;
+    %PUT ERROR: Open this file and update LINE 14 with your path;
+    %PUT ERROR: Example: %nrstr(%LET project_root = C:\Users\yourname\irb_validation_toolkit;);
+    %PUT ERROR: ================================================;
+    %ABORT CANCEL;
+%END;
 
-/*=============================================================================
-  STEP 3: INITIALIZE
-=============================================================================*/
+/* Load configuration */
+%INCLUDE "&project_root.\config\validation_config.sas" / SOURCE2;
+%INCLUDE "&project_root.\config\model_parameters.sas" / SOURCE2;
+
+/* Load macros */
+%INCLUDE "&project_root.\macros\00_utility_macros.sas" / SOURCE2;
+%INCLUDE "&project_root.\macros\01_data_quality.sas" / SOURCE2;
+%INCLUDE "&project_root.\macros\02_pd_validation.sas" / SOURCE2;
+%INCLUDE "&project_root.\macros\03_lgd_validation.sas" / SOURCE2;
+%INCLUDE "&project_root.\macros\04_ead_ccf_validation.sas" / SOURCE2;
+%INCLUDE "&project_root.\macros\05_reporting.sas" / SOURCE2;
+%INCLUDE "&project_root.\main\generate_sample_data.sas" / SOURCE2;
+
+/* Initialize */
 %init_validation(reset=Y);
 
-/*=============================================================================
-  STEP 4: GENERATE SAMPLE DATA
-=============================================================================*/
+/* Generate sample data */
 %generate_sample_data(n_customers=10000, out_lib=WORK, out_ds=portfolio);
 
-/*=============================================================================
-  STEP 5: DATA QUALITY
-=============================================================================*/
+/* Data Quality */
 %run_data_quality(
     indata=WORK.portfolio,
     key_vars=customer_id obs_date,
@@ -43,9 +52,7 @@ DM 'LOG; CLEAR; OUTPUT; CLEAR;';
     out_report=WORK.dq_report
 );
 
-/*=============================================================================
-  STEP 6: PD VALIDATION
-=============================================================================*/
+/* PD Validation */
 %run_pd_validation(
     indata=WORK.portfolio,
     pd_var=predicted_pd,
@@ -55,9 +62,7 @@ DM 'LOG; CLEAR; OUTPUT; CLEAR;';
     out_prefix=pd_val
 );
 
-/*=============================================================================
-  STEP 7: LGD VALIDATION
-=============================================================================*/
+/* LGD Validation */
 %run_lgd_validation(
     indata=WORK.portfolio,
     lgd_predicted=predicted_lgd,
@@ -68,9 +73,7 @@ DM 'LOG; CLEAR; OUTPUT; CLEAR;';
     out_prefix=lgd_val
 );
 
-/*=============================================================================
-  STEP 8: EAD/CCF VALIDATION
-=============================================================================*/
+/* EAD/CCF Validation */
 %run_ead_ccf_validation(
     indata=WORK.portfolio,
     limit_var=credit_limit,
@@ -80,14 +83,10 @@ DM 'LOG; CLEAR; OUTPUT; CLEAR;';
     out_prefix=ead_val
 );
 
-/*=============================================================================
-  STEP 9: EXPORT REPORTS
-=============================================================================*/
+/* Export Reports */
 %generate_validation_report(out_dir=&output_lib.);
 
-/*=============================================================================
-  STEP 10: PRINT SUMMARY
-=============================================================================*/
+/* Print Summary */
 TITLE "========================================";
 TITLE2 "IRB VALIDATION - EXECUTIVE SUMMARY";
 TITLE3 "Generated: %SYSFUNC(TODAY(), WORDDATE.)";
