@@ -1,17 +1,27 @@
 # IRB Credit Model Validation Toolkit
 
-A SAS-based validation toolkit for IRB (Internal Ratings-Based) credit risk models covering **PD**, **LGD**, and **EAD/CCF** validation. Aligned to **CRR Articles 179/181/182** and **EBA GL/2017/16**.
+## 🎯 Live Dashboard
+
+[View Interactive Results](https://irb-validation-toolkit.onrender.com/)
+
+## Overview
+A SAS-based validation toolkit for IRB credit risk models covering 
+PD, LGD, and EAD/CCF. Aligned to CRR Articles 179/181/182 and 
+EBA GL/2017/16.
 
 
 ## Key Results
 
 | Metric | Value | Status |
 |--------|-------|--------|
-| Overall AUC | 0.6219 | 🟡 AMBER |
-| Gini Coefficient | 0.2437 | 🟡 AMBER |
-| Calibration Bias | 0.24% | 🟢 GREEN |
-| Default Rate | 1.97% | — |
-| LGD Bias | 1.7% | 🟢 GREEN |
+| Overall AUC | 0.6176 | AMBER |
+| Gini | 0.2352 | AMBER |
+| Calibration Bias | 0.39% | GREEN |
+| LGD Bias | 3.42% | GREEN |
+| EAD Ratio | 1.013 | GREEN |
+| Default Rate | 2.11% | — |
+| Findings | 5 | 3 RED, 1 AMBER |
+
 
 ## Validation Modules
 
