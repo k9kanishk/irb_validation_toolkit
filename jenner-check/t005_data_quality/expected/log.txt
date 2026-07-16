@@ -1,0 +1,123 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: PROC DATASETS library=WORK
+
+NOTE: NOTE: KILL option deleted 0 member(s) from library WORK.
+NOTE: DATA WORK.validation_findings
+
+
+NOTE: Wrote WORK.validation_findings (0 rows, 12 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: Validation environment initialized at 01JAN2020:12:00:00
+NOTE: DATA WORK.portfolio
+
+
+NOTE: Wrote WORK.portfolio (100 rows, 4 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: ========================================
+NOTE: Starting Data Quality Assessment
+NOTE: Dataset: WORK.portfolio
+NOTE: ========================================
+NOTE: DATA WORK.dq_report
+
+
+NOTE: Wrote WORK.dq_report (0 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: Data Quality Assessment Complete
+NOTE: PROC SQL 
+
+NOTE: Macro variable N_RECORDS = 100
+NOTE: Macro variable MIN_DATE = 04JAN2023
+NOTE: Macro variable MAX_DATE = 24OCT2023
+NOTE: Macro variable N_PERIODS = 85
+NOTE: PROC SQL statement used.
+NOTE: Records=100 | Date range: 04JAN2023 to 24OCT2023 | Periods=85
+NOTE: PROC SQL 
+
+NOTE: 1 row(s) inserted into WORK.validation_findings.
+NOTE: PROC SQL statement used.
+ERROR: [DATA_QUALITY] Sample size 100 below minimum 1000 (Severity=2)
+NOTE: PROC FORMAT library=WORK
+
+NOTE: FORMAT $misstype defined (2 ranges).
+NOTE: FORMAT misstype defined (2 ranges).
+NOTE: PROC MEANS
+NOTE: Output dataset _nmiss_stats has 1 observations and 4 variables.
+NOTE: PROC MEANS statement used.
+NOTE: PROC TRANSPOSE data=_nmiss_stats
+
+NOTE: Created 4 rows.
+NOTE: Output written to /tmp/work/r_665dfb0c4a074e9ca2fce974b0cd50f2/work/80357f45-2243-472f-b415-eddb5efd393c/_nmiss_long.avro.
+NOTE: PROC SQL 
+
+NOTE: Macro variable TOT = 100
+NOTE: PROC SQL statement used.
+NOTE: PROC SQL 
+
+NOTE: Macro variable N_TOTAL = 100
+NOTE: Macro variable N_UNIQUE = 97
+NOTE: PROC SQL statement used.
+NOTE: PROC SQL 
+
+NOTE: 1 row(s) inserted into WORK.validation_findings.
+NOTE: PROC SQL statement used.
+NOTE: [DATA_QUALITY] 3 duplicates on keys customer_id obs_date (Severity=4)
+NOTE: PROC SQL 
+
+NOTE: Macro variable PD_VIOL = 0
+NOTE: PROC SQL statement used.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: DATA _nmiss_long
+
+
+NOTE: Read 4 rows from _nmiss_long.
+NOTE: Wrote _nmiss_long (4 rows, 4 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA _high_miss
+
+
+NOTE: Read 0 rows from _nmiss_long.
+NOTE: Wrote _high_miss (0 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC APPEND base=WORK.dq_report data=_high_miss
+
+NOTE: Appended 0 rows.
+NOTE: DATA _NULL_
+
+
+NOTE: Read 0 rows from _nmiss_long.
+NOTE: Wrote _NULL_ (0 rows, 5 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC DATASETS library=WORK
+
+NOTE: Deleting _NMISS_STATS (memtype=DATA).
+NOTE: Deleting _NMISS_LONG (memtype=DATA).
+NOTE: Deleting _HIGH_MISS (memtype=DATA).
+NOTE: 3 dataset(s) deleted.
+NOTE: PROC SQL 
+
+NOTE: 1 row(s) inserted into WORK.dq_report.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to Data Quality Report.
+NOTE: PROC PRINT data=WORK.dq_report
+
+NOTE: PROC PRINT completed: 1 observations printed, 6 variables
+NOTE: Option TITLE changed to All Findings.
+NOTE: PROC PRINT data=validation_findings
+
+NOTE: PROC PRINT completed: 2 observations printed, 4 variables

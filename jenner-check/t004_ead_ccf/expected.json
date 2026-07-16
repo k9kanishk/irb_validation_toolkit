@@ -1,0 +1,12 @@
+{
+  "_captured_at": "2026-07-16T13:55:00Z",
+  "_captured_run_id": "r_5555d94175cf4114b2440a07954b6532",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Table ead_val_ccf_by_segment created.",
+    "NOTE: Table ead_val_ead_accuracy created."
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}

@@ -1,0 +1,5 @@
+                                                  Sample Data Summary
+
+Records  Defaults  Default_Rate  Avg_PD   Min_Date   Max_Date
+-------  --------  ------------  ------  ---------  ---------
+    100       2.0          2.00    1.71  02JAN2021  22SEP2023

@@ -1,0 +1,7 @@
+{
+  "bundle": "t006_pd_override",
+  "source_file": "macros/02_pd_validation.sas",
+  "source_blob_sha": "329216357c371f24c3a034ac5aa0e1538419d039",
+  "source_commit": "fa1305283a13490444d7b4f0694670b98622feb8",
+  "notes": "pd_override_analysis macro (override simulation via CALL STREAMINIT/RAND, PROC SQL CASE-based summary + direction bucketing) copied unmodified. Caller generates a 400-row sample portfolio with predicted_pd/default_12m (the same PD-generation logic as main/generate_sample_data.sas) and drives pd_override_analysis exactly as run_pd_validation does."
+}

@@ -1,0 +1,47 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA WORK.portfolio
+
+
+NOTE: Wrote WORK.portfolio (100 rows, 5 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: --- Calibration Analysis ---
+NOTE: PROC RANK data=WORK.portfolio out=Some("_ranked") groups=10
+
+
+NOTE: Read 100 rows from /tmp/work/r_b9685e9d72624d43818d937cc39d0591/work/aeb9a067-18ea-4c0b-b41b-f1cc453c2a5b/portfolio.avro.
+NOTE: Wrote /tmp/work/r_b9685e9d72624d43818d937cc39d0591/work/aeb9a067-18ea-4c0b-b41b-f1cc453c2a5b/_ranked.avro (100 rows, 6 columns).
+NOTE: PROC RANK elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table pd_val_calibration_deciles created.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to PD Calibration by Decile (values in %).
+NOTE: PROC PRINT data=pd_val_calibration_deciles
+
+NOTE: PROC PRINT completed: 10 observations printed, 8 variables
+NOTE: PROC SQL 
+
+NOTE: Table pd_val_calibration_overall created.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to PD Calibration - Overall.
+NOTE: PROC PRINT data=pd_val_calibration_overall
+
+NOTE: PROC PRINT completed: 1 observations printed, 7 variables
+NOTE: PROC SQL 
+
+NOTE: Table pd_val_calibration_by_segment created.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to PD Calibration by Segment (%).
+NOTE: PROC PRINT data=pd_val_calibration_by_segment
+
+NOTE: PROC PRINT completed: 3 observations printed, 6 variables
+NOTE: PROC DATASETS library=WORK
+
+NOTE: Deleting _RANKED (memtype=DATA).
+NOTE: 1 dataset(s) deleted.

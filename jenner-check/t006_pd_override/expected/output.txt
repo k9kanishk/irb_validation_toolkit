@@ -1,0 +1,16 @@
+                                                Override Impact Summary
+
+
+override_status  n_accounts  n_defaults  default_rate_pct  avg_pd_pct  avg_post_pd_pct
+---------------  ----------  ----------  ----------------  ----------  ---------------
+Not Overridden           86           0              0.00        1.48             1.48
+Overridden               14           0              0.00        1.66             1.30
+
+                                              Override Direction Analysis
+
+
+      direction  n_overrides  default_rate_pct  avg_original_pd  avg_final_pd
+---------------  -----------  ----------------  ---------------  ------------
+Risk Downgraded           11              0.00             1.67          1.11
+Risk Upgraded              3              0.00             1.62          2.00
+

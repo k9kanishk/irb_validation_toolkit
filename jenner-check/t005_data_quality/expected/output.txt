@@ -1,0 +1,15 @@
+                                                  Data Quality Report
+
+
+check_name              variable  result                   detail  records_affected  pct_affected
+----------  --------------------  ------  -----------------------  ----------------  ------------
+Duplicates  customer_id obs_date  FAIL    3 duplicates found (3%)                 3             3
+
+                                                      All Findings
+
+
+      module    test_name  rag_status                               finding_text
+------------  -----------  ----------  -----------------------------------------
+DATA_QUALITY  Sample Size  RED         Sample size 100 below minimum 1000
+DATA_QUALITY  Duplicates   AMBER       3 duplicates on keys customer_id obs_date
+

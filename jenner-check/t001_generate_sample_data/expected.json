@@ -1,0 +1,13 @@
+{
+  "_captured_at": "2026-07-16T13:30:00Z",
+  "_captured_run_id": "r_bc32fbf8bbbe493f86567e61604589eb",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Generating 500 sample IRB records...",
+    "NOTE: Wrote WORK.portfolio (100 rows, 15 columns).",
+    "NOTE: Sample data created -> WORK.portfolio"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}

@@ -1,0 +1,13 @@
+{
+  "_captured_at": "2026-07-16T14:05:00Z",
+  "_captured_run_id": "r_8f2d5b72b8ba42d2b1807fcddc7665a2",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: --- Override Analysis ---",
+    "NOTE: Table pd_val_override_summary created.",
+    "NOTE: Table pd_val_override_direction created."
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}

@@ -1,0 +1,17 @@
+                                                   CCF by Segment (%)
+
+
+  segment  n_defaults  predicted_ccf  realized_ccf      bias
+---------  ----------  -------------  ------------  --------
+CORPORATE          57          35.01         39.00      3.99
+SME                43          34.08         34.92      0.84
+
+                                                   CCF by Segment (%)
+
+                                                   EAD Model Accuracy
+
+
+n_defaults  avg_ead_predicted  avg_ead_realized  avg_ead_bias  ead_ratio
+----------  -----------------  ----------------  ------------  ---------
+       100            375,400           378,680         3,280      1.009
+
