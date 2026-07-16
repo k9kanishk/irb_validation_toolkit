@@ -1,0 +1,7 @@
+{
+  "bundle": "t001_generate_sample_data",
+  "source_file": "main/generate_sample_data.sas",
+  "source_blob_sha": "93cf454460098c46d0668928189acaec2cf9cdc3",
+  "source_commit": "fa1305283a13490444d7b4f0694670b98622feb8",
+  "notes": "Unmodified generate_sample_data macro (synthetic IRB portfolio via CALL STREAMINIT + RAND BETA/UNIFORM/EXPONENTIAL/NORMAL), called at the end with n_customers=500 instead of 10000 to keep the bundle run fast. No external data or path edits needed -- the script is fully self-contained."
+}

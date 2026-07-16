@@ -1,0 +1,52 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA base_pop
+
+
+NOTE: Wrote base_pop (100 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA comp_pop
+
+
+NOTE: Wrote comp_pop (100 rows, 2 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC RANK data=base_pop out=Some("_base_ranked") groups=10
+
+
+NOTE: Read 100 rows from /tmp/work/r_f85b1221243d4b82bd738515c2eb1e8b/work/7da73c98-ebd3-4bb1-80e9-cb784fd6e1c6/base_pop.avro.
+NOTE: Wrote /tmp/work/r_f85b1221243d4b82bd738515c2eb1e8b/work/7da73c98-ebd3-4bb1-80e9-cb784fd6e1c6/_base_ranked.avro (100 rows, 3 columns).
+NOTE: PROC RANK elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC RANK data=comp_pop out=Some("_comp_ranked") groups=10
+
+
+NOTE: Read 100 rows from /tmp/work/r_f85b1221243d4b82bd738515c2eb1e8b/work/7da73c98-ebd3-4bb1-80e9-cb784fd6e1c6/comp_pop.avro.
+NOTE: Wrote /tmp/work/r_f85b1221243d4b82bd738515c2eb1e8b/work/7da73c98-ebd3-4bb1-80e9-cb784fd6e1c6/_comp_ranked.avro (100 rows, 3 columns).
+NOTE: PROC RANK elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table _base_dist created.
+NOTE: Table _comp_dist created.
+NOTE: Table psi_results created.
+NOTE: Macro variable TOTAL_PSI = 0
+NOTE: PROC SQL statement used.
+NOTE: PSI = 0
+NOTE: PROC DATASETS library=WORK
+
+NOTE: Deleting _BASE_RANKED (memtype=DATA).
+NOTE: Deleting _COMP_RANKED (memtype=DATA).
+NOTE: Deleting _BASE_DIST (memtype=DATA).
+NOTE: Deleting _COMP_DIST (memtype=DATA).
+NOTE: 4 dataset(s) deleted.
+NOTE: Option TITLE changed to PSI Detail by Score Bin.
+NOTE: PROC PRINT data=psi_results
+
+NOTE: PROC PRINT completed: 10 observations printed, 4 variables

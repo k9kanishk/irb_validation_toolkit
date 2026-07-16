@@ -1,0 +1,12 @@
+{
+  "_captured_at": "2026-07-16T13:50:00Z",
+  "_captured_run_id": "r_f85b1221243d4b82bd738515c2eb1e8b",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Table psi_results created.",
+    "NOTE: PSI = 0"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}

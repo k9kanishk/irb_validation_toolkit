@@ -1,0 +1,7 @@
+{
+  "bundle": "t004_ead_ccf",
+  "source_file": "macros/04_ead_ccf_validation.sas",
+  "source_blob_sha": "c6751cd9e0007ca4997786cf4143a58df058c146",
+  "source_commit": "fa1305283a13490444d7b4f0694670b98622feb8",
+  "notes": "run_ead_ccf_validation's _ccf_pop data-prep DATA step and its ccf_by_segment / ead_accuracy PROC SQL queries copied unmodified. The macro's first query (ccf_accuracy) also calls CORR(predicted_ccf, realized_ccf) as a plain PROC SQL aggregate expression -- CORR is not a documented PROC SQL summary function in SAS 9.4 (support.sas.com/documentation/cdl/en/sqlproc/62086/HTML/default/a001334120.htm lists AVG/MEAN/COUNT/FREQ/N/CSS/CV/MAX/MIN/NMISS/PRT/RANGE/STD/STDERR/SUM/SUMWGT/T/USS/VAR only, no CORR), so that query is left out of this bundle -- it's the repo's own construct, not something to route around by rewriting their code. Caller generates a small defaulted-loan portfolio with credit_limit/current_drawn/predicted_ccf, matching the shape main/generate_sample_data.sas produces for defaults."
+}

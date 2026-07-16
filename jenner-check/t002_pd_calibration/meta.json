@@ -1,0 +1,7 @@
+{
+  "bundle": "t002_pd_calibration",
+  "source_file": "macros/02_pd_validation.sas",
+  "source_blob_sha": "329216357c371f24c3a034ac5aa0e1538419d039",
+  "source_commit": "fa1305283a13490444d7b4f0694670b98622feb8",
+  "notes": "pd_calibration macro (decile calibration via PROC RANK/SQL, overall + by-segment bias with RAG thresholds) copied unmodified. Config LETs (calibration_bias_green/amber) inlined since config/validation_config.sas isn't loaded standalone. Caller generates a 500-row sample portfolio via a trimmed copy of generate_sample_data (predicted_pd + default_12m only, no unused columns) and drives pd_calibration exactly as run_full_validation.sas does."
+}

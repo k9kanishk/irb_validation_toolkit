@@ -1,0 +1,34 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA WORK.portfolio
+
+
+NOTE: Wrote WORK.portfolio (100 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA _ccf_pop
+
+
+NOTE: Read 100 rows from WORK.portfolio.
+NOTE: Wrote _ccf_pop (100 rows, 10 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table ead_val_ccf_by_segment created.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to CCF by Segment (%).
+NOTE: PROC PRINT data=ead_val_ccf_by_segment
+
+NOTE: PROC PRINT completed: 2 observations printed, 5 variables
+NOTE: PROC SQL 
+
+NOTE: Table ead_val_ead_accuracy created.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to EAD Model Accuracy.
+NOTE: PROC PRINT data=ead_val_ead_accuracy
+
+NOTE: PROC PRINT completed: 1 observations printed, 5 variables

@@ -1,0 +1,39 @@
+NOTE: Jenner v1.5.30 (build v1.5.30+unknown.20260715T062217Z.x86_64-unknown-linux-gnu)
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA WORK.portfolio
+
+
+NOTE: Wrote WORK.portfolio (100 rows, 3 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: --- Override Analysis ---
+NOTE: DATA _override_sim
+
+
+NOTE: Read 100 rows from WORK.portfolio.
+NOTE: Wrote _override_sim (100 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SQL 
+
+NOTE: Table pd_val_override_summary created.
+NOTE: PROC SQL statement used.
+NOTE: PROC SQL 
+
+NOTE: Table pd_val_override_direction created.
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to Override Impact Summary.
+NOTE: PROC PRINT data=pd_val_override_summary
+
+NOTE: PROC PRINT completed: 2 observations printed, 6 variables
+NOTE: Option TITLE changed to Override Direction Analysis.
+NOTE: PROC PRINT data=pd_val_override_direction
+
+NOTE: PROC PRINT completed: 2 observations printed, 5 variables
+NOTE: PROC DATASETS library=WORK
+
+NOTE: Deleting _OVERRIDE_SIM (memtype=DATA).
+NOTE: 1 dataset(s) deleted.

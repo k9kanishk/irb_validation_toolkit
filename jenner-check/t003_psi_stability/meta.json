@@ -1,0 +1,7 @@
+{
+  "bundle": "t003_psi_stability",
+  "source_file": "macros/00_utility_macros.sas",
+  "source_blob_sha": "93cf454460098c46d0668928189acaec2cf9cdc3",
+  "source_commit": "fa1305283a13490444d7b4f0694670b98622feb8",
+  "notes": "calc_psi macro (PROC RANK GROUPS=10 + PROC SQL bin-percentage/PSI-component calc) copied unmodified. Caller builds two 300-row synthetic score cohorts (base/comparison) and calls calc_psi exactly as macros/02_pd_validation.sas's pd_stability does. Note: because PROC RANK bins each dataset into its own independent deciles, base_pct and comp_pct are ~10%/bin by construction and PSI comes out ~0 for equal-sized samples -- this is the macro's own documented behavior (same call pattern as pd_stability), not a Jenner artifact; the bundle demonstrates the PROC RANK/SQL mechanics running correctly against the toolkit's own logic."
+}

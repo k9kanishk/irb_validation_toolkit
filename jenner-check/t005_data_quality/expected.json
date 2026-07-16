@@ -1,0 +1,13 @@
+{
+  "_captured_at": "2026-07-16T14:00:00Z",
+  "_captured_run_id": "r_665dfb0c4a074e9ca2fce974b0cd50f2",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Starting Data Quality Assessment",
+    "NOTE: [DATA_QUALITY] 3 duplicates on keys customer_id obs_date (Severity=4)",
+    "NOTE: Data Quality Assessment Complete"
+  ],
+  "log_does_not_contain": ["[JENNER-ERROR"],
+  "diagnostics": {"parse_warnings": [], "runtime_warnings": []}
+}

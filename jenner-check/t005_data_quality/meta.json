@@ -1,0 +1,7 @@
+{
+  "bundle": "t005_data_quality",
+  "source_file": "macros/01_data_quality.sas",
+  "source_blob_sha": "a6f4add42333cd243461b57399f261cc6d352a10",
+  "source_commit": "fa1305283a13490444d7b4f0694670b98622feb8",
+  "notes": "run_data_quality and its sub-macros (dq_record_summary, dq_missing_values, dq_duplicates, dq_range_checks) copied unmodified from macros/01_data_quality.sas, plus init_validation/log_finding from macros/00_utility_macros.sas (dq_outliers left out -- it hardcodes a second PROC MEANS on the literal 'predicted_pd' variable name, redundant with dq_range_checks for this bundle's purposes). Caller generates a 100-row sample portfolio with a handful of deliberately duplicated customer_id/obs_date keys, mirroring a real IRB extract with data issues. Note: the module's own %PUT ERROR: lines are intentional (severity<=2 findings are logged as ERROR by log_finding's design, not a Jenner failure) -- expected.json checks for the specific finding NOTE lines rather than blanket-excluding 'ERROR:'."
+}
